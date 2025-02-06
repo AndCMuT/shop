@@ -1,0 +1,23 @@
+.Header {
+    width: 100%;
+    height: 80px;
+    background-color: #5dcad8;
+    display: flex;
+    justify-content: space-between;
+}
+.Header ul {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.Header li {
+    width: 140px;
+    height: 100%;
+    list-style: none;
+    line-height: 75px;
+    cursor: pointer;
+}
+.Header li:hover {
+    background-color: #36929e;
+}
