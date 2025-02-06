@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "67a369f6d8c4f207e4898dce"
+  },
+  "header": "Монитор",
+  "price": {
+    "$numberLong": "23579"
+  },
+  "image": "./img/prod_img.webp"
+}]
