@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Main.css';
 import Product from '../components/Product';
-import image from '../img/prod_img.webp';
+
 
 
 function Main() {
