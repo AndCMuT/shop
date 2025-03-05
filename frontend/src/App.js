@@ -8,6 +8,7 @@ import ModalBox from './components/ModalBox.js';
 import Login from './components/Login.js';
 import Registration from './components/Registration.js';
 
+
 function App() {
 
   const[page, setPage] = useState('Main');
