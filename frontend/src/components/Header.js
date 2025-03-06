@@ -7,6 +7,7 @@ function Header({setPage, setModalBox}) {
     <div className="Header">
       <ul>
         <li onClick={() => setPage('Main')}>Главная</li>
+        <li onClick={() => setPage('PersonAcc')}>Личный кабинет</li>
         <li onClick={() => setPage('Basket')}>Корзина</li>
         
       </ul>

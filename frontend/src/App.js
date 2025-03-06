@@ -7,6 +7,7 @@ import Basket from './views/Basket.js';
 import ModalBox from './components/ModalBox.js';
 import Login from './components/Login.js';
 import Registration from './components/Registration.js';
+import PersonAcc from './views/PersonAcc.js';
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
 
   const pages = {
     Main: <Main />,
-    Basket: <Basket />
+    Basket: <Basket />,
+    PersonAcc: <PersonAcc />
   }
 
   const modalBoxes = {
