@@ -18,7 +18,7 @@
     background-color: #f5f5dc;
     margin-bottom: 10px;
 }
-.changeAvatar {
+form {
     padding: 10px;
     display: flex;
     flex-direction: column;
