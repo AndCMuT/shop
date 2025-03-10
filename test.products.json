@@ -6,5 +6,15 @@
   "price": {
     "$numberLong": "23579"
   },
-  "image": "./img/prod_img.webp"
+  "image": "./img/monitor.png"
+},
+{
+  "_id": {
+    "$oid": "67c8735ba79a0ae6f66a1cee"
+  },
+  "header": "Ноутбук",
+  "price": {
+    "$numberLong": "124000"
+  },
+  "image": "./img/laptop.png"
 }]
