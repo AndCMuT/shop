@@ -9,6 +9,7 @@ const nodemon = require('nodemon')
 const {secret} = require('./config')
 const User = require('./models/User')
 const Product = require('./models/Product')
+const { default: Login } = require('../frontend/src/components/Login')
 
 const app = express()
 
@@ -47,6 +48,11 @@ app.post('/login', async (req, res) => {
         message: 'Вы успешно авторизованы!',
         token: token
     })
+})
+
+app.post('/PersonAcc', async (req, res) => {
+    const userData = await User.find({login})
+    
 })
 
 app.get('/products', async (req, res) => {
