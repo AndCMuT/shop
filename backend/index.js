@@ -51,7 +51,7 @@ app.post('/login', async (req, res) => {
 })
 
 app.post('/PersonAcc', async (req, res) => {
-    const userData = await User.find({login})
+
     
 })
 

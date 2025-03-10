@@ -32,8 +32,9 @@ function App() {
     <div className="App">
       
       <Router>
+        <Header setModalBox={setModalBox}/>
         <Routes>
-          <Route><Header setModalBox={setModalBox}/></Route>
+          
           <Route path='/' element={<Main />} />
           <Route path='/Basket' element={<Basket />} />
           <Route path='/PersonAcc' element={<PersonAcc />} />
