@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import UserBox from './UserBox'
 
 function Header({setPage, setModalBox}) {
   return (
     <div className="Header">
-      <ul>
-        <li onClick={() => setPage('Main')}>Главная</li>
-        <li onClick={() => setPage('PersonAcc')}>Личный кабинет</li>
-        <li onClick={() => setPage('Basket')}>Корзина</li>  
-      </ul>
+      <nav>
+        <Link to="/" className='headerLink'>Главная</Link>
+        <Link to="/PersonAcc" className='headerLink'>Личный кабинет</Link>
+        <Link to="/Basket" className='headerLink'>Корзина</Link>  
+      </nav>
       <UserBox setModalBox={setModalBox} />
     </div>
   );

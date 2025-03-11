@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import './App.css';
 import Header from './components/Header';
 import Main from './views/Main.js';
@@ -12,14 +13,8 @@ import PersonAcc from './views/PersonAcc.js';
 
 function App() {
 
-  const[page, setPage] = useState('Main');
   const[modalBox, setModalBox] = useState('None');
 
-  const pages = {
-    Main: <Main />,
-    Basket: <Basket />,
-    PersonAcc: <PersonAcc />
-  }
 
   const modalBoxes = {
     None: null,
@@ -28,12 +23,17 @@ function App() {
   }
 
   return (
-    <div className="App">
-    <Header setPage={ setPage } setModalBox={setModalBox}/>
-    {pages[page]}
-    {modalBoxes[modalBox]}
-    <Footer />
-    </div>
+    <Router>
+      <Header setModalBox={setModalBox}/>
+      <Routes>
+
+          <Route path='/' element={<Main />} />
+          <Route path='/Basket' element={<Basket />} />
+          <Route path='/PersonAcc' element={<PersonAcc />} />
+
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
