@@ -16,11 +16,11 @@ function App() {
   // const[page, setPage] = useState('Main');
   const[modalBox, setModalBox] = useState('None');
 
-  const pages = {
-    Main: <Main />,
-    Basket: <Basket />,
-    PersonAcc: <PersonAcc />
-  }
+  // const pages = {
+  //   Main: <Main />,
+  //   Basket: <Basket />,
+  //   PersonAcc: <PersonAcc />
+  // }
 
   const modalBoxes = {
     None: null,
@@ -40,9 +40,10 @@ function App() {
           <Route path='/PersonAcc' element={<PersonAcc />} />
 
         </Routes>
+        {modalBoxes[modalBox]}
+        <Footer />
       </Router>
-      {modalBoxes[modalBox]}
-      <Footer />
+
     </div>
   );
 }

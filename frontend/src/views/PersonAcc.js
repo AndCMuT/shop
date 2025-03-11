@@ -3,24 +3,6 @@ import './PersonAcc.css';
 
 function PersonAcc() {
 
-const data = {
-  
-}
-const api = 'http://localhost:9001/login'
-
-  fetch(api, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  .then(result => result.json())
-  .then((result) => {
-    console.log(result)
-  })
-
-
 
   return (
     <div className="PersonAcc">

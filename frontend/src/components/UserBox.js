@@ -1,6 +1,7 @@
 import React from 'react';
 import './UserBox.css'
 
+
 function UserBox({setModalBox}) {
   return (
     <div className="UserBox">

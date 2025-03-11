@@ -7,9 +7,9 @@ function Header({ setModalBox }) {
   return (
     <div className="Header">
       <ul>
-        <li><Link to="/">Главная</Link></li>
-        <li><Link to="/Basket">Личный кабинет</Link></li>
-        <li><Link to="/PersonAcc">Корзина</Link></li>  
+      <Link to="/"><li>Главная</li></Link>
+      <Link to="/PersonAcc"><li>Личный кабинет</li></Link>
+      <Link to="/Basket"><li>Корзина</li></Link>  
       </ul>
       <UserBox setModalBox={setModalBox} />
     </div>
