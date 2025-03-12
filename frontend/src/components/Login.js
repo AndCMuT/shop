@@ -1,7 +1,9 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+
+const navigate = useNavigate()
 
     function Log() {
       
@@ -26,7 +28,12 @@ function Login() {
       .then((result) => {
         console.log(result)
         localStorage.setItem('token', result.token)
+        if(result.token !== undefined)
+          navigate(-1)
+        else
+          {alert("Не верный логин или пароль")}
       })
+
     }
 
   return (
@@ -34,7 +41,7 @@ function Login() {
         <h1>Вход</h1>
         <input id='login' type='text' placeholder='login' />
         <input id='password' type='password' placeholder='password' />
-        <button onClick={Log}>Войти</button>
+        <button onClick={ Log }>Войти</button>
     </>
   );
 }

@@ -3,7 +3,7 @@ import './ModalBox.css';
 import { useNavigate} from 'react-router-dom';
 
 
-function ModalBox({setModalBox, children}) {
+function ModalBox({ children }) {
 
   const navigate = useNavigate()
 

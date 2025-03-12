@@ -31,10 +31,9 @@ function AppContent() {
           <Route path='/' element={<Main />} />
           <Route path='/Basket' element={<Basket />} />
           <Route path='/PersonAcc' element={<PersonAcc />} />
-
-      </Routes>
-
-      {background && (
+        </Routes>
+    
+      {background && ( 
         <Routes>
           <Route path='/login' element={<ModalBox><Login /></ModalBox>} />
           <Route path='/registration' element={ <ModalBox> <Registration /> </ModalBox>} />
