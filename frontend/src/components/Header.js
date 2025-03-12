@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 import UserBox from './UserBox'
 
-function Header({setPage, setModalBox}) {
+function Header() {
+
   return (
     <div className="Header">
       <nav>
@@ -11,7 +12,7 @@ function Header({setPage, setModalBox}) {
         <Link to="/PersonAcc" className='headerLink'>Личный кабинет</Link>
         <Link to="/Basket" className='headerLink'>Корзина</Link>  
       </nav>
-      <UserBox setModalBox={setModalBox} />
+      <UserBox />
     </div>
   );
 }

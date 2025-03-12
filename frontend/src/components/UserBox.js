@@ -1,12 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './UserBox.css'
 
-function UserBox({setModalBox}) {
+function UserBox() {
+
+  const location = useLocation()
+
   return (
     <div className="UserBox">
-      <Link>Вход</Link>
-      <button onClick={() => setModalBox('Registration')}>Регистрация</button>
+      <Link to="/login" state={{background: location}}>Вход</Link>
+      <Link to="/registration" state={{background: location}}>Регистрация</Link>
     </div>
   );
 }
