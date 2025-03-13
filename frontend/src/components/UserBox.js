@@ -9,7 +9,7 @@ function UserBox() {
 
   if (token !== undefined) 
     return (<div className="UserBox">
-      <Link className='linkRegLog' to="/PersonAcc">Личный кабинет</Link>
+      <Link className='linkPersonAcc' to="/PersonAcc">Личный кабинет</Link>
     </div>)
 
 

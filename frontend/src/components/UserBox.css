@@ -26,3 +26,21 @@
         background-color: #baf064;
     }
 }
+.linkPersonAcc {
+    width: 140px;
+    height: 100%;
+    list-style: none;
+    line-height: 75px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    &:hover{
+        background-color: #36929e;
+    }
+    &:visited{
+        color: black;
+    }
+    &:active{
+        color: white;
+    }
+}

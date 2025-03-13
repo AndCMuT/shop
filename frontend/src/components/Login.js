@@ -33,7 +33,6 @@ const navigate = useNavigate()
         else
           {alert("Не верный логин или пароль")}
       })
-
     }
 
   return (
