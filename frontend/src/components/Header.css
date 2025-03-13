@@ -19,6 +19,7 @@
     cursor: pointer;
     text-decoration: none;
     text-align: center;
+    color: black;
     &:hover{
         background-color: #36929e;
     }

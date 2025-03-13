@@ -5,19 +5,14 @@ import './PersonAcc.css';
 function PersonAcc() {
 
   const api = 'http://localhost:9001/personAcc'
-  const token = localStorage.getItem()
+  const token = localStorage.getItem('token')
+  console.log(token)
 
-  fetch(api, {
-    method: 'POST',
-    headers: {
-      'Content Type': 'application/json'
-    },
-    body: JSON.stringify(token)
-  })
-  .then(result => result.json())
-  .then((result) => {
-    console.log(result)
-  })
+  // fetch(api)
+  // .then(result => result.json())
+  // .then((result) => {
+  //   console.log(result)
+  // })
 
 
 

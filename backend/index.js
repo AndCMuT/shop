@@ -49,15 +49,15 @@ app.post('/login', async (req, res) => {
     })
 })
 
-app.post('/personAcc', async (req, res) => {
+// app.post('/personAcc', async (req, res) => {
 
-    const {token} = req.body
-    const user = await User.findOne({token})
-    res.json({
-        login: login,
-        email: email
-    })
-})
+//     const {token} = req.body
+//     const user = await User.findOne({token})
+//     res.json({
+//         login: login,
+//         email: email
+//     })
+// })
 
 app.get('/products', async (req, res) => {
 

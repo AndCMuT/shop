@@ -28,6 +28,7 @@ const navigate = useNavigate()
       .then((result) => {
         console.log(result)
         localStorage.setItem('token', result.token)
+        console.log(result.token)
         if(result.token !== undefined)
           navigate(-1)
         else
