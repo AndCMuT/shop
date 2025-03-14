@@ -1,11 +1,12 @@
-import React, {useEffect} from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './UserBox.css'
 
 function UserBox() {
 
   const token = localStorage.getItem('token')
   const location = useLocation()
+  const navigate = useNavigate()
   // useEffect(() => {
 
   //   if (!token) {
@@ -24,8 +25,10 @@ function UserBox() {
   
    else return (
     <div className="UserBox">
-      <Link className='linkPersonAcc' to="/PersonAcc">Личный кабинет</Link>
-      <button className='linkRegLof' type='button' onClick={localStorage.removeItem('token')}>Выйти</button>
+      <Link className='linkRegLog' to="/PersonAcc">ЛК</Link>
+      <button className='linkRegLog' type='button' onClick={() => {localStorage.removeItem('token') 
+        navigate('/')
+      }}>Выйти</button>
   </div>)
 
   

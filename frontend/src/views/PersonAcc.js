@@ -8,11 +8,16 @@ function PersonAcc() {
   const token = localStorage.getItem('token')
   console.log(token)
 
-  // fetch(api)
-  // .then(result => result.json())
-  // .then((result) => {
-  //   console.log(result)
-  // })
+  fetch(api, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  })
+  .then((res) => res.json())
+  .then((result) => {
+    console.log(result)
+  })
 
 
 
