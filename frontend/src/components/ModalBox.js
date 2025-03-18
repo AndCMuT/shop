@@ -1,10 +1,15 @@
 import React from 'react';
 import './ModalBox.css';
+import { useNavigate} from 'react-router-dom';
 
-function ModalBox({setModalBox, children}) {
+
+function ModalBox({ children }) {
+
+  const navigate = useNavigate()
+
   return (
     <>
-      <div className="Echo" onClick={() => setModalBox('None')}></div>
+      <div className="Echo" onClick={() => navigate(-1)}></div>
       <div className="ModalBox">
         {children}
       </div>

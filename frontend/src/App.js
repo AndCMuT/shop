@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom'
 import './App.css';
 import Header from './components/Header';
 import Main from './views/Main.js';
@@ -10,41 +10,38 @@ import Login from './components/Login.js';
 import Registration from './components/Registration.js';
 import PersonAcc from './views/PersonAcc.js';
 
-
 function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  )
+}
 
-  // const[page, setPage] = useState('Main');
-  const[modalBox, setModalBox] = useState('None');
+function AppContent() {
 
-  // const pages = {
-  //   Main: <Main />,
-  //   Basket: <Basket />,
-  //   PersonAcc: <PersonAcc />
-  // }
-
-  const modalBoxes = {
-    None: null,
-    Login: <ModalBox setModalBox={setModalBox}><Login /></ModalBox>,
-    Registration: <ModalBox setModalBox={setModalBox}><Registration /></ModalBox>
-  }
+  const location = useLocation()
+  const background = location.state?.background
 
   return (
-    <div className="App">
-      
-      <Router>
-        <Header setModalBox={setModalBox}/>
-        <Routes>
-          
+  <>
+      <Header />
+      <Routes location={ background || location }>
+
           <Route path='/' element={<Main />} />
           <Route path='/Basket' element={<Basket />} />
           <Route path='/PersonAcc' element={<PersonAcc />} />
-
         </Routes>
-        {modalBoxes[modalBox]}
-        <Footer />
-      </Router>
+    
+      {background && ( 
+        <Routes>
+          <Route path='/login' element={<ModalBox><Login /></ModalBox>} />
+          <Route path='/registration' element={ <ModalBox> <Registration /> </ModalBox>} />
+        </Routes>
+      )}
 
-    </div>
+      <Footer />
+  </>
   );
 }
 

@@ -5,19 +5,28 @@
     display: flex;
     justify-content: space-between;
 }
-.Header ul {
+.Header nav {
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
-.Header li {
+.headerLink{
     width: 140px;
     height: 100%;
     list-style: none;
     line-height: 75px;
     cursor: pointer;
-}
-.Header li:hover {
-    background-color: #36929e;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    &:hover{
+        background-color: #36929e;
+    }
+    &:visited{
+        color: black;
+    }
+    &:active{
+        color: white;
+    }
 }

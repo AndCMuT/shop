@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 import UserBox from './UserBox'
 
-function Header({ setModalBox }) {
+function Header() {
+
   return (
     <div className="Header">
-      <ul>
-      <Link to="/"><li>Главная</li></Link>
-      <Link to="/PersonAcc"><li>Личный кабинет</li></Link>
-      <Link to="/Basket"><li>Корзина</li></Link>  
-      </ul>
-      <UserBox setModalBox={setModalBox} />
+      <nav>
+        <Link to="/" className='headerLink'>Главная</Link>
+        <Link to="/Basket" className='headerLink'>Корзина</Link>  
+      </nav>
+      <UserBox />
     </div>
   );
 }

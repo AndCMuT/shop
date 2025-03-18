@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
 }
-.UserBox button {
+.linkRegLog {
     width: 100px;
     height: 30px;
     margin: 5px 0 3px 0;
@@ -14,4 +14,33 @@
     box-shadow: 0 0 3px 3px #6969697e;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    line-height: 30px;
+    &:hover {
+        background-color: #86ad46;
+    }
+    &:active {
+        background-color: #baf064;
+    }
+}
+.linkPersonAcc {
+    width: 140px;
+    height: 100%;
+    list-style: none;
+    line-height: 75px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    &:hover{
+        background-color: #36929e;
+    }
+    &:visited{
+        color: black;
+    }
+    &:active{
+        color: white;
+    }
 }
