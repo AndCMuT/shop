@@ -50,15 +50,15 @@ app.post('/login', async (req, res) => {
     })
 })
 
-// app.post('/personAcc', async (req, res) => {
-
-//     const {token} = req.body
-//     const user = await User.findOne({token})
-//     res.json({
-//         login: login,
-//         email: email
-//     })
-// })
+app.post('/personAcc', async (req, res) => {
+    const token = req.header('Authorization')?.split(' ')[1]
+    const decoded = jwt.verify(token, secret)
+    console.log(decoded)
+    const user = await User.findById(decoded.id)
+    res.json({
+        data: user
+    })
+})
 
 app.get('/products', async (req, res) => {
 
