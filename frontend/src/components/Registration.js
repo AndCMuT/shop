@@ -1,11 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 function Registration() {
 
+  const navigate = useNavigate()
+
   function Reg(){
     
-    // const name = document.getElementById('name').value
     const login = document.getElementById('login').value
     const password = document.getElementById('password').value
     const email = document.getElementById('email').value
@@ -29,6 +31,7 @@ function Registration() {
     .then(result => result.json())
     .then((result) => {
       console.log(result)
+      navigate(-1)
     })
   }
 

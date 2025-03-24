@@ -9,7 +9,6 @@ const nodemon = require('nodemon')
 const {secret} = require('./config')
 const User = require('./models/User')
 const Product = require('./models/Product')
-const { default: Login } = require('../frontend/src/components/Login')
 
 const app = express()
 
@@ -58,6 +57,32 @@ app.post('/personAcc', async (req, res) => {
     res.json({
         data: user
     })
+})
+
+app.put('/personAcc', async (req, res) => {
+try {
+    const authHeader = req.header('Authorization')
+    if (!authHeader) {
+        return res.status(401).json({message: 'Нет токена'})
+    }
+    const token = authHeader?.split(' ')[1]
+    const decoded = jwt.verify(token, secret)
+    const userId = decoded.id
+    const { email, firstName, lastName } = req.body
+    const updateUser = await User.findByIdAndUpdate(
+        userId,
+        {email, firstName, lastName},
+        {new: true}
+    )
+    if (!updateUser) {
+        return res.status(400).json({message: 'Пользователь не найден'})
+    }
+    res.json({message: 'Данные обновлены', user: updateUser})
+}
+catch (error) {
+    console.error(error)
+    res.status(500).json({message: 'Ошибка сервера', error: error.message})
+}
 })
 
 app.get('/products', async (req, res) => {
