@@ -9,6 +9,7 @@ import ModalBox from './components/ModalBox.js';
 import Login from './components/Login.js';
 import Registration from './components/Registration.js';
 import PersonAcc from './views/PersonAcc.js';
+import AddProductBox from './components/AddProductBox.js';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function AppContent() {
         <Routes>
           <Route path='/login' element={<ModalBox><Login /></ModalBox>} />
           <Route path='/registration' element={ <ModalBox> <Registration /> </ModalBox>} />
+          <Route path='/add_product_box' element={ <ModalBox><AddProductBox/></ModalBox> } />
         </Routes>
       )}
 

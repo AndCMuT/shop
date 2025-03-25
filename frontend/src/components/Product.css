@@ -4,6 +4,11 @@
     box-shadow: 0 0 5px 5px #8f8b8b9f;
     margin: auto;
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .Product img {
     width: 200px;

@@ -3,7 +3,29 @@
     min-height: calc(100vh - 75px - 75px);
     background-color: #abd8bc;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     padding: 30px;
+}
+
+.btnAddProduct {
+    width: 100px;
+    height: 30px;
+    margin: 5px 0 3px 0;
+    background-color: #a4d359;
+    border: none;
+    box-shadow: 0 0 3px 3px #6969697e;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    line-height: 30px;
+    &:hover {
+        background-color: #86ad46;
+    }
+    &:active {
+        background-color: #baf064;
+    }
 }

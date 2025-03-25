@@ -85,6 +85,21 @@ catch (error) {
 }
 })
 
+app.put('/addproduct', async (req, res) => {
+    try {
+        const {header, price, image} = req.body
+        const product = new Product({header, price, image})
+        await product.save()
+        res.json({
+            message: 'Товар добавлен'
+        })
+    }
+    catch (error) {
+        console.error(error)
+        res.status(500).json({message: 'Ошибка сервера', error: error.message})
+    }
+})
+
 app.get('/products', async (req, res) => {
 
     const products = await Product.find()

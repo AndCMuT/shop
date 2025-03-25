@@ -3,7 +3,6 @@
     height: calc(100vh - 75px - 75px);
     background-color: #abd8bc;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
 }

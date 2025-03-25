@@ -9,6 +9,8 @@ function Header() {
     <div className="Header">
       <nav>
         <Link to="/" className='headerLink'>Главная</Link>
+        <Link to="/" className='headerLink'>Оплата и доставка</Link>
+        <Link to="/" className='headerLink'>О нас</Link>    
         <Link to="/Basket" className='headerLink'>Корзина</Link>  
       </nav>
       <UserBox />

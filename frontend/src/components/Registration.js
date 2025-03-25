@@ -12,7 +12,6 @@ function Registration() {
     const password = document.getElementById('password').value
     const email = document.getElementById('email').value
     const data = {
-      // name: name,
       login: login,
       email: email,
       password: password
@@ -37,11 +36,11 @@ function Registration() {
 
   return (
     <>
-        <h1>Регистрация</h1>
-        <input id='login' type='text' placeholder='login' />
-        <input id='email' type='email' placeholder='email' />
-        <input id='password' type='password' placeholder='password' />
-        <button onClick={Reg}>Отправить</button>
+      <h1>Регистрация</h1>
+      <input id='login' type='text' placeholder='login' />
+      <input id='email' type='email' placeholder='email' />
+      <input id='password' type='password' placeholder='password' />
+      <button onClick={Reg}>Отправить</button>
     </>
   );
 }
