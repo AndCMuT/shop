@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Main.css';
 import Product from '../components/Product';
+import AddProductCard from '../components/AddProductCard';
 
 
 
@@ -24,9 +25,12 @@ function Main() {
 
 
   return (
+    <>
     <div className="Main">
       {products.map((item) => <Product key={ item._id } header={item.header} image={item.image} price={item.price}/>)}
+      <AddProductCard />
     </div>
+    </>
   );
 }
 

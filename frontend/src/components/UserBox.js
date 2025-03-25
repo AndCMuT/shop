@@ -7,16 +7,6 @@ function UserBox() {
   const token = localStorage.getItem('token')
   const location = useLocation()
   const navigate = useNavigate()
-  // useEffect(() => {
-
-  //   if (!token) {
-  //     console.log("No token")
-  //   }
-  //   else {
-  //     console.log(`Token find ${token}`)
-  //   }    
-  // }, [])
-
 
   if(!token) return (<div className="UserBox">
           <Link className='linkRegLog' to="/login" state={{background: location}}>Вход</Link>
@@ -32,9 +22,6 @@ function UserBox() {
   </div>)
 
   
-
-
-
 
 
 
