@@ -8,14 +8,18 @@ function Basket() {
 
   useEffect (() => {
 
-    const api = 'http://localhost:9001/basket'
+    // const api = 'http://localhost:9001/basket'
 
-    fetch(api)
-    .then(result => result.json())
-    .then((result) => {
-      console.log(result)
-      setProducts(result.data)
-    })
+    // fetch(api)
+    // .then(result => result.json())
+    // .then((result) => {
+    //   console.log(result)
+    //   setProducts(result.data)
+    // })
+
+    const savedBasket = JSON.parse(localStorage.getItem('Basket') || [])
+    setProducts(savedBasket)
+
   }, [])
 
 
@@ -23,7 +27,7 @@ function Basket() {
   return (
     <div className="Basket">
       <h1>Корзина</h1>
-      {products.map((item) => <ProductInBasket key={item._id} header={item.header} price={item.price} image={item.image}/>)}
+      <div className="BasketProductBlock">{products.map((item) => <ProductInBasket key={item._id} header={item.header} price={item.price} image={item.image}/>)}</div>
     </div>
   );
 }

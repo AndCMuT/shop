@@ -1,10 +1,11 @@
 .ProductInBasket {
 
-    min-width: 60%;
+    min-width: 80%;
     height: 150px;
     box-shadow: 0 0 5px 5px #8f8b8b9f;
     border-radius: 7px;
     margin: auto;
+    margin-top: 15px;
     padding: 25px;
     display: flex;
     flex-direction: row;

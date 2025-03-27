@@ -23,11 +23,26 @@ function Main() {
 
   }, [])
 
+  const addToBasket = (product) => {
+    const basket = JSON.parse(localStorage.getItem('Basket')) || []
+    basket.push(product)
+    localStorage.setItem('Basket', JSON.stringify(basket))
+    alert('Товар добавлен в корзину')
+  }
+
 
   return (
     <>
     <div className="Main">
-      {products.map((item) => <Product key={ item._id } header={item.header} image={item.image} price={item.price} id={item._id}/>)}
+      {products.map((item) => 
+      <Product 
+      key={ item._id } 
+      header={item.header} 
+      image={item.image} 
+      price={item.price} 
+      id={item._id}
+      addToBasket = { () => addToBasket(item)} />
+      )}
       <AddProductCard />
     </div>
     </>
