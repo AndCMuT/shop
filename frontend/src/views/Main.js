@@ -25,9 +25,14 @@ function Main() {
 
   const addToBasket = (product) => {
     const basket = JSON.parse(localStorage.getItem('Basket')) || []
-    basket.push(product)
+    const existingProduct = basket.find(item => item._id === product._id)
+    if (existingProduct) {
+      existingProduct.quantity += 1
+    } else {
+      basket.push({...product, quantity: 1})
+    }
     localStorage.setItem('Basket', JSON.stringify(basket))
-    alert('Товар добавлен в корзину')
+    // alert('Товар добавлен в корзину')
   }
 
 

@@ -1,33 +1,68 @@
 import React, { useEffect, useState } from 'react';
 import './Basket.css';
 import ProductInBasket from '../components/ProductInBasket';
+import BasketTotal from '../components/BasketTotal';
 
 function Basket() {
 
-  const [products, setProducts] = useState([])
+  const [basket, setProducts] = useState([])
 
   useEffect (() => {
-
-    // const api = 'http://localhost:9001/basket'
-
-    // fetch(api)
-    // .then(result => result.json())
-    // .then((result) => {
-    //   console.log(result)
-    //   setProducts(result.data)
-    // })
 
     const savedBasket = JSON.parse(localStorage.getItem('Basket') || [])
     setProducts(savedBasket)
 
   }, [])
 
+  const removeFromBasket = (id) =>  {
+    const updateBasket = basket.filter((item) => item._id !== id)
+    setProducts(updateBasket)
+    localStorage.setItem('Basket', JSON.stringify(updateBasket))
+   }
 
+  const downQuantity = (id) => {
+    const product = basket.find(item => item._id === id)
+    if (product.quantity === 1) {
+      removeFromBasket(id)
+    }else{
+    product.quantity -= 1
+    localStorage.setItem('Basket', JSON.stringify(basket))
+    const updateQuantityBasket = JSON.parse(localStorage.getItem('Basket'))
+    setProducts(updateQuantityBasket)
+    }
+  }
 
+  const upQuantity = (id) => {
+    const product = basket.find(item => item._id === id)
+    product.quantity += 1
+    localStorage.setItem('Basket', JSON.stringify(basket))
+    const updateQuantityBasket = JSON.parse(localStorage.getItem('Basket'))
+    setProducts(updateQuantityBasket)
+  }
+  
+  
+
+//Добавить проверку на пустую корзину
   return (
     <div className="Basket">
       <h1>Корзина</h1>
-      <div className="BasketProductBlock">{products.map((item) => <ProductInBasket key={item._id} header={item.header} price={item.price} image={item.image}/>)}</div>
+      {basket.length === 0 ? 
+        (<h2>Корзина пуста</h2>) :
+      (<div className="BasketProductBlock">
+        {basket.map((item) => 
+        <ProductInBasket 
+        key={item._id} 
+        header={item.header} 
+        price={item.price} 
+        image={item.image} 
+        removeFromBasket={ () => removeFromBasket(item._id)} 
+        downQuantity={ () => downQuantity(item._id)}
+        upQuantity={ () => upQuantity(item._id)}
+        quantity={item.quantity}
+        />
+        )}
+        <BasketTotal />
+        </div>)}
     </div>
   );
 }

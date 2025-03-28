@@ -3,29 +3,21 @@ import './ProductInBasket.css';
 
 
 
-function ProductInBasket({header, image, price, id}) {
+function ProductInBasket({header, image, price, removeFromBasket, quantity, downQuantity, upQuantity}) {
 
-  const api = 'http://localhost:9001/toBasket'
-  
-  function toBasket() {
-    const productId = {id}
-    fetch(api, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(productId)
-    })
-    .then(result => result.json())
-    .then((result) => console.log(result))
-  }
 
   return (
     <div className="ProductInBasket">
       <img src={image} alt='product'/>
-      <h1>{header}</h1>
+      <h2>{header}</h2>
+      <div className='quantityBlock'>
+        <button className='upDownButton' type='button' onClick={upQuantity}>+</button>
+        <p>{`${quantity} шт`}</p>
+        <button className='upDownButton' type='button' onClick={downQuantity}>-</button>
+      </div>
       <p>{`${price} rub`}</p>
-      <button type='button' onClick={toBasket}>Удалить</button>
+      <button type='button' onClick={removeFromBasket}>Удалить</button>
+
     </div>
   );
 }
