@@ -6,12 +6,13 @@ import BasketTotal from '../components/BasketTotal';
 function Basket() {
 
   const [basket, setProducts] = useState([])
+  
 
   useEffect (() => {
 
     const savedBasket = JSON.parse(localStorage.getItem('Basket') || [])
     setProducts(savedBasket)
-
+    
   }, [])
 
   const removeFromBasket = (id) =>  {
@@ -41,8 +42,16 @@ function Basket() {
   }
   
   
+  // const totalSumOneProduct = (id) => {
+  //   console.log(basket)
+  //   const sum =[]
+  //   const totalSum = basket.forEach((el) => {total = el.quantity*el.price 
+  //     return totalSum})
+  //   console.log(totalSum)
+  // }
+  // totalSumOneProduct()
 
-//Добавить проверку на пустую корзину
+
   return (
     <div className="Basket">
       <h1>Корзина</h1>
