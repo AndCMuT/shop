@@ -10,6 +10,7 @@ import Login from './components/Login.js';
 import Registration from './components/Registration.js';
 import PersonAcc from './views/PersonAcc.js';
 import AddProductBox from './components/AddProductBox.js';
+import OrderForm from './components/OrderForm.js';
 
 function App() {
   return (
@@ -30,7 +31,9 @@ function AppContent() {
       <Routes location={ background || location }>
 
           <Route path='/' element={<Main />} />
-          <Route path='/Basket' element={<Basket />} />
+          <Route path='/Basket' element={<Basket />}>
+
+          </Route>
           <Route path='/PersonAcc' element={<PersonAcc />} />
         </Routes>
     
@@ -39,6 +42,7 @@ function AppContent() {
           <Route path='/login' element={<ModalBox><Login /></ModalBox>} />
           <Route path='/registration' element={ <ModalBox> <Registration /> </ModalBox>} />
           <Route path='/add_product_box' element={ <ModalBox><AddProductBox/></ModalBox> } />
+          <Route path='/order_form' element={<ModalBox><OrderForm/></ModalBox>} />
         </Routes>
       )}
 

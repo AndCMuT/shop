@@ -30,7 +30,7 @@ function AddProductBox() {
     .then(result => result.json())
     .then((result) => {
       console.log(result)
-      navigate(-1)
+      navigate('/')
     })
   }
 

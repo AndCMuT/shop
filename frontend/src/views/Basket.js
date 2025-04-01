@@ -6,7 +6,6 @@ import BasketTotal from '../components/BasketTotal';
 function Basket() {
 
   const [basket, setProducts] = useState([])
-  
 
   useEffect (() => {
 

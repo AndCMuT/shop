@@ -9,9 +9,14 @@ import AddProductCard from '../components/AddProductCard';
 function Main() {
 
   const [products, setProducts] = useState([])
-
+  const basketCheck = () => {
+    const basket = localStorage.getItem('Basket')
+    if (!basket)
+      localStorage.setItem('Basket', JSON.stringify([]))
+  }
+  
   useEffect(() => {
-
+    basketCheck()
     const api = 'http://localhost:9001/products'
 
     fetch(api)

@@ -36,7 +36,7 @@ function Registration() {
 
   return (
     <>
-      <h1>Регистрация</h1>
+      <h2>Регистрация</h2>
       <input id='login' type='text' placeholder='login' />
       <input id='email' type='email' placeholder='email' />
       <input id='password' type='password' placeholder='password' />
