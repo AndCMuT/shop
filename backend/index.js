@@ -100,6 +100,31 @@ app.put('/addproduct', async (req, res) => {
     }
 })
 
+const toBasketArray = [] //Массив для наполнения корзины
+//запрос получения данных при нажатии кнопки на карточке товара
+app.post('/toBasket', async (req, res) => {
+    try {
+
+        const {id} = req.body
+        const product = await Product.findById(id)
+        toBasketArray.push(product)
+        res.json({
+            message: 'Товар в корзине',
+            basket: toBasketArray
+        })
+    }
+    catch(error) {
+        console.error(error)
+        res.status(500).json({message: 'Ошибка сервера', error: error.message})
+    }
+})
+
+app.get('/basket', (req, res) => {
+    res.json({
+        data: toBasketArray
+    })
+})
+
 app.get('/products', async (req, res) => {
 
     const products = await Product.find()

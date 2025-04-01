@@ -38,7 +38,7 @@ const navigate = useNavigate()
 
   return (
     <>
-        <h1>Вход</h1>
+        <h2>Вход</h2>
         <input id='login' type='text' placeholder='login' />
         <input id='password' type='password' placeholder='password' />
         <button onClick={ Log }>Войти</button>

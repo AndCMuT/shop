@@ -9,6 +9,7 @@ backend/node_modules
 
 # testing
 /coverage
+/frontend/src/components/test.js
 
 # production
 /build

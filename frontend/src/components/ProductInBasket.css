@@ -1,0 +1,79 @@
+.ProductInBasket {
+    min-width: 80%;
+    height: 150px;
+    box-shadow: 0 0 5px 5px #8f8b8b9f;
+    border-radius: 7px;
+    margin: auto;
+    margin-top: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.ProductInBasket img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.ProductInBasket h1 {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+.Basket .ProductInBasket h2 {
+    width: 25%;
+    height: 50px;
+    line-height: 50px;
+    margin: 10px;
+}
+.ProductInBasket p {
+    width: 25%;
+    height: 50px;
+    margin: 7px;
+    line-height: 50px;
+    font-size: 24px;
+}
+.ProductInBasket button {
+    width: 90px;
+    height: 40px;
+    margin-right: 5px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 0 3px 3px #4e4e4e88;
+    background-color: #a4d359;
+    cursor: pointer;
+    font-size: 1rem;
+    &:hover {
+        background-color: #b2e463;
+        box-shadow: 0 0 4px 4px #4e4e4e88
+    }
+    &:active {
+        background-color: #96bb5a;
+        box-shadow: 0 0 1px 1px #4e4e4e88
+    }
+}
+.quantityBlock {
+    max-width: 25%;
+    min-width: 180px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.ProductInBasket .upDownButton {
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    font-weight: 800;
+}
+.quantityBlock p {
+    width: 80px
+}
