@@ -4,7 +4,7 @@ import { useNavigate} from 'react-router-dom';
 
 
 function ModalBox({ children }) {
-
+//Пропс (свойство) children для генерации модальных окон из других компонентов
   const navigate = useNavigate()
 
   return (

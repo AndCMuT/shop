@@ -1,14 +1,14 @@
-const PORT = 9001
-const URLDB = 'mongodb://localhost:27017'
+const PORT = 9001 //порт сервера
+const URLDB = 'mongodb://localhost:27017' //адрес базы данных mongoDB
 
-const express = require('express')
+const express = require('express') //для работы с сервером
 const cors = require('cors')
-const jwt = require('jsonwebtoken')
-const mongoose = require('mongoose')
+const jwt = require('jsonwebtoken') //для работы с токеном
+const mongoose = require('mongoose') //для работы с БД
 const nodemon = require('nodemon')
-const {secret} = require('./config')
-const User = require('./models/User')
-const Product = require('./models/Product')
+const {secret} = require('./config') //секрет
+const User = require('./models/User') //схема юзера
+const Product = require('./models/Product') //схема товара
 
 const app = express()
 
@@ -21,7 +21,7 @@ const generateAccessToken = (id) => {
     }
     return jwt.sign(payload, secret, {expiresIn: '24h'})
 }
-
+//эндпоинт регистрации
 app.post('/registration', async (req, res) => {
     console.log(req.body)
     const {login, email, password} = req.body
@@ -31,7 +31,7 @@ app.post('/registration', async (req, res) => {
         message: 'Вы успешно зарегистрировались!'
     })
 })
-
+//эндпоинт авторизации
 app.post('/login', async (req, res) => {
     console.log(req.body)
     const {login, password} = req.body
@@ -48,7 +48,7 @@ app.post('/login', async (req, res) => {
         token: token
     })
 })
-
+//эндпоинт для данных в ЛК
 app.post('/personAcc', async (req, res) => {
     const token = req.header('Authorization')?.split(' ')[1]
     const decoded = jwt.verify(token, secret)
@@ -58,7 +58,7 @@ app.post('/personAcc', async (req, res) => {
         data: user
     })
 })
-
+//Для изменения данных пользователя
 app.put('/personAcc', async (req, res) => {
 try {
     const authHeader = req.header('Authorization')
@@ -84,7 +84,7 @@ catch (error) {
     res.status(500).json({message: 'Ошибка сервера', error: error.message})
 }
 })
-
+//Для добавления товара
 app.put('/addproduct', async (req, res) => {
     try {
         const {header, price, image} = req.body
@@ -100,31 +100,30 @@ app.put('/addproduct', async (req, res) => {
     }
 })
 
-const toBasketArray = [] //Массив для наполнения корзины
-//запрос получения данных при нажатии кнопки на карточке товара
-app.post('/toBasket', async (req, res) => {
-    try {
 
-        const {id} = req.body
-        const product = await Product.findById(id)
-        toBasketArray.push(product)
-        res.json({
-            message: 'Товар в корзине',
-            basket: toBasketArray
-        })
-    }
-    catch(error) {
-        console.error(error)
-        res.status(500).json({message: 'Ошибка сервера', error: error.message})
-    }
-})
+// app.post('/toBasket', async (req, res) => {
+//     try {
 
-app.get('/basket', (req, res) => {
-    res.json({
-        data: toBasketArray
-    })
-})
+//         const {id} = req.body
+//         const product = await Product.findById(id)
+//         toBasketArray.push(product)
+//         res.json({
+//             message: 'Товар в корзине',
+//             basket: toBasketArray
+//         })
+//     }
+//     catch(error) {
+//         console.error(error)
+//         res.status(500).json({message: 'Ошибка сервера', error: error.message})
+//     }
+// })
 
+// app.get('/basket', (req, res) => {
+//     res.json({
+//         data: toBasketArray
+//     })
+// })
+//Для получения списка товаров
 app.get('/products', async (req, res) => {
 
     const products = await Product.find()
@@ -132,7 +131,7 @@ app.get('/products', async (req, res) => {
         data: products
     })
 })
-
+//Для запуска сервера
 const start = async () => {
     try {
         await mongoose.connect(URLDB)

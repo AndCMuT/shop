@@ -4,7 +4,10 @@ import './ProductInBasket.css';
 
 
 function ProductInBasket({header, image, price, removeFromBasket, quantity, downQuantity, upQuantity}) {
-
+//Компонент корзины все необходимые пропсы для заполнения 
+//quantity - количество товара 
+//downQuantity и upQuantity - функции для управления количеством товара
+//removeFromBasket - удалить товар из корзины
 
   return (
     <div className="ProductInBasket">

@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose')
-
+//Схема для юзера для БД
 const User = new Schema({
     login: {
         type: String,

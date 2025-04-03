@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose')
-
+//Схема товара для БД
 const Product = new Schema({
     header: {
         type: String,

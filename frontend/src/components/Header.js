@@ -8,6 +8,7 @@ function Header() {
   return (
     <div className="Header">
       <nav>
+        {/* Маршруты */}
         <Link to="/" className='headerLink'>Главная</Link>
         <Link to="/" className='headerLink'>Оплата и доставка</Link>
         <Link to="/" className='headerLink'>О нас</Link>    

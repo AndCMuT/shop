@@ -4,33 +4,34 @@ import { useNavigate } from 'react-router-dom';
 
 function AddProductBox() {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate() //Хук для навигации по страницам
 
   function AddProduct(){
     
-    const header = document.getElementById('header').value
+    const header = document.getElementById('header').value //Получаем значение input по id и записываем в переменную
     const price = document.getElementById('price').value
     const image = document.getElementById('image').value
-    const data = {
+    const data = { //Создаём объект из полученных значений
       header: header,
       price: price,
       image: image
     }
-    console.log(data)
+    console.log(data) //Проверка (можно убрать)
     
-    const api = 'http://127.0.0.1:9001/addproduct'
+    const api = 'http://127.0.0.1:9001/addproduct' //адрес сервера
 
     fetch(api, {
-      method: 'PUT',
+      method: 'PUT', //только передаём данные на сервер
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data) //Делаем из объекта строку
     })
-    .then(result => result.json())
+    .then(result => result.json()) //Ответ от сервера
     .then((result) => {
-      console.log(result)
-      navigate('/')
+      console.log(result) //Выводим в консоль ответ от сервера
+      navigate('/') //Переходим на главную страницу
+      window.location.reload() //Перезагружаем страницу
     })
   }
 

@@ -14,7 +14,8 @@ import OrderForm from './components/OrderForm.js';
 
 function App() {
   return (
-    <Router>
+    //Обернули в Router (BrowserRoute) для работы маршрутов в приложении
+    <Router> 
       <AppContent />
     </Router>
   )
@@ -22,21 +23,21 @@ function App() {
 
 function AppContent() {
 
-  const location = useLocation()
-  const background = location.state?.background
+  const location = useLocation() //Хук считывает на какой странице находится пользователь в данный момент
+  const background = location.state?.background // Достаёт background из state если он передан (?. - опциональная цепочка)
 
   return (
   <>
       <Header />
-      <Routes location={ background || location }>
-
-          <Route path='/' element={<Main />} />
-          <Route path='/Basket' element={<Basket />}>
-
-          </Route>
-          <Route path='/PersonAcc' element={<PersonAcc />} />
-        </Routes>
-    
+{/* Если background есть рендерит основные маршруты, как если бы оставались на той же странице */}
+{/* Если background нет просто рендерит маршруты по location */}
+      <Routes location={ background || location }> 
+      {/* Маршруты */}
+        <Route path='/' element={<Main />} />
+        <Route path='/Basket' element={<Basket />}/>
+        <Route path='/PersonAcc' element={<PersonAcc />} />
+      </Routes>
+{/* Если background был передан через state то модальные окна рендерит отдельно */}
       {background && ( 
         <Routes>
           <Route path='/login' element={<ModalBox><Login /></ModalBox>} />
